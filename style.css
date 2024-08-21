@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins",sans-serif;
+    border: none;
+    outline: none;
+}
+html{
+    font-size: 62.5%;
+    overflow: hidden;
+}
+
+
+:root {
+    --primary-color: #de2614 ;
+    --white: #fff;
+    --color1: #181818 ;
+    --font1: 'Roboto', sans-serif;
+    --font2: 'Bebas Neue', cursive;
+}
+body {
+    font-family: var(--font1);
+}
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: var(--primary-color);
+    padding: 2rem 9%;
+}
+.nav-bar .claim-btn{
+    color: #fff;
+    display: none;
+}
+.logo img {
+    width: 50px;
+    object-fit: cover;
+}
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.15s ease;
+    position: relative;
+    text-transform: capitalize;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: 0.15s ease;
+}
+.menu li a:hover::after , .menu li.active a::after {width: 100%;}
+.open-menu , .close-menu {
+    position: absolute;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 2rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 20px;
+    right: 20px;
+
+}
+#check {display: none;}
+
+.wrapper {
+    background: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: 0 60px;
+    padding-bottom: 10rem;
+}
+.left-col , .rigth-col {flex: 1;}
+
+.rigth-col img {width: 100%;}
+
+.title {
+    font-size: 8rem;
+    text-transform: uppercase;
+    font-family: var(--font2);
+    letter-spacing: 3px;
+}
+.order-btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 3rem;
+    background: linear-gradient(-30deg, #c4c002 50%, #ffdb3c 50%);
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    cursor: pointer;
+    border-radius: .8rem;
+    transition: 0.15s ease-in-out;
+    color: #000000;
+}
+.order-btn:hover {color: var(--color1);}
+.left-col p{
+    font-size: 1.8rem;
+    text-align: start;
+    margin-top: 2rem;
+}
+.left-col p span{
+    font-weight: bold;
+    margin-right: 1rem;
+    font-size: 1.9rem;
+}
+.left-col .small-des{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    width: 70%;
+}
+.left-col h2{
+    font-size: 3.5rem;
+    text-transform: capitalize;
+    padding: 1rem 1rem;
+    width: 60%;
+    text-align: center;
+    border-radius: 1rem;
+    background: #000000;
+    position: relative;
+    cursor: pointer;
+    z-index: 0;
+}
+/* Rainbow Animation Effect */
+
+.left-col h2:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.left-col h2:active {
+    color: #000
+}
+
+.left-col h2:active:after {
+    background: transparent;
+}
+
+.left-col h2:before {
+    opacity: 1;
+}
+
+.left-col h2:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Responsive page */
+@media(max-width: 610px){
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: var(--primary-color);
+        transition: 0.2s ease-in-out;
+        box-shadow:  0 0 6px rgba(0,0,0,14%);
+        z-index: 99999;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu, .close-menu {
+        display: block;
+    }
+    #check:checked ~ .menu {
+        right: 0;
+    }
+}
+@media(max-width:820px){
+    .wrapper {
+        position: relative;
+        flex-direction: column-reverse;
+        padding: 0 20px;
+    }
+    .nav-bar {padding: 20px;}
+}
+
+@media(max-width:425px){
+    .nav-bar{
+        padding: 2rem 9%;
+    }
+    .open-menu{
+        display: none;
+    }
+    .nav-bar .claim-btn{
+        display: block;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: relative;
+        font-size: 1.5rem;
+        background: linear-gradient(-30deg, #e0dd06 50%, #f3ce29 50%);
+        color: #000000;
+        font-weight: 500;
+        overflow: hidden;
+        font-family: "Poppins",sans-serif;
+        box-shadow: 0 0 10px 5px rgb(233, 172, 3);
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        padding: 1rem 2rem;
+        cursor: pointer;
+    }
+
+    /* Sign Up Button Animation */
+    .nav-bar .claim-btn span:nth-child(1) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #05f842, #ffffff);
+        animation: animate1 2s linear infinite;
+    }
+    
+    @keyframes animate1 {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+    
+    .nav-bar .claim-btn span:nth-child(2) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to bottom, #05f842,#ffffff);
+        animation: animate2 2s linear infinite;
+        animation-delay: 1s;
+    }
+    @keyframes animate2 {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(100%);
+        }
+    }
+    
+    .nav-bar .claim-btn span:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to left, #05f842, #ffffff);
+        animation: animate3 2s linear infinite;
+    }
+    
+    @keyframes animate3 {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    
+    .nav-bar .claim-btn span:nth-child(4) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to top, #05f842, #ffffff);
+        animation: animate4 2s linear infinite;
+        animation-delay: 1s;
+    }
+    
+    @keyframes animate4 {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+
+
+    .title{
+        font-size: 7rem;
+        margin-top: -10rem;
+        text-align: center;
+    }
+    .left-col{
+        padding-bottom: 10rem;
+    }
+    .left-col h2{
+        font-size: 2.8rem;
+        width: 90%;
+    }
+    .left-col  .small-des{
+        width: 90%;
+    }
+    .order-btn{
+        padding: 1.5rem 3rem;
+        position: relative;
+        font-weight: 500;
+        overflow: hidden;
+        font-family: "Poppins",sans-serif;
+        box-shadow: 0 0 10px 5px rgb(224, 76, 7);
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        padding: 1.5rem 2rem;
+        border-radius: 0;
+        cursor: pointer;
+    }
+
+     /* Win Button Animation */
+     .order-btn span:nth-child(1) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #000000, #ffffff);
+        animation: animate1 2s linear infinite;
+    }
+    
+    @keyframes animate1 {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+    
+    .order-btn span:nth-child(2) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to bottom, #000000,#ffffff);
+        animation: animate2 2s linear infinite;
+        animation-delay: 1s;
+    }
+    @keyframes animate2 {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(100%);
+        }
+    }
+    
+    .order-btn span:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to left, #000000, #ffffff);
+        animation: animate3 2s linear infinite;
+    }
+    
+    @keyframes animate3 {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    
+    .order-btn span:nth-child(4) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to top, #000000, #ffffff);
+        animation: animate4 2s linear infinite;
+        animation-delay: 1s;
+    }
+    
+    @keyframes animate4 {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+}
+@media(max-width:375px){
+    .title{
+        margin-top: -13rem;
+    }
+}
+@media(max-width:320px){
+    .title{
+        font-size: 5rem;
+        margin-top: -15rem;
+    }
+    .left-col h2{
+        font-size: 2rem;
+        width: 100%;
+    }
+    .left-col p{
+        width: 100%;
+        text-align: center;
+    }
+    .left-col .small-des{
+        width: 100%;
+        text-align: center;
+    }
+    .order-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
